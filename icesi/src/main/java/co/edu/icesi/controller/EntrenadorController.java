@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/entrenadores")
+@RequestMapping("/api/entrenadores")
 public class EntrenadorController {
 
     private final EntrenadorService entrenadorService;
@@ -24,5 +24,10 @@ public class EntrenadorController {
     @PostMapping
     public Entrenador agregarEntrenador(@RequestBody Entrenador entrenador) {
         return entrenadorService.agregarEntrenador(entrenador);
+    }
+
+    @GetMapping("/{id}")
+    public Entrenador obtenerEntrenador(@PathVariable Long id) {
+        return entrenadorService.obtenerEntrenador(id);
     }
 }

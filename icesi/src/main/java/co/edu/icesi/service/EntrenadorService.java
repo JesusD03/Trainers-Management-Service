@@ -18,8 +18,11 @@ public class EntrenadorService {
     public List<Entrenador> listarEntrenadores() {
         return entrenadorRepository.findAll();
     }
-
     public Entrenador agregarEntrenador(Entrenador entrenador) {
         return entrenadorRepository.save(entrenador);
+    }
+
+    public Entrenador obtenerEntrenador(Long id) {
+        return entrenadorRepository.findById(id).orElse(null);
     }
 }
